@@ -47,11 +47,12 @@ int	check_rip(t_game *rules)
 	pthread_mutex_lock(&rules->check_dead);
 	while (i < rules->nb_philo)
 	{
-		if (get_time() > rules->philo[i].last_meal + (size_t)rules->t_die)
+		if (get_time() - rules->philo[i].last_meal > (size_t)rules->t_die)
 		{
 			print_status(&rules->philo[i], DIED);
 			rules->dead = 1;
 			pthread_mutex_unlock(&rules->check_dead);
+			usleep(500);
 			return (1);
 		}
 		i++;

@@ -17,11 +17,11 @@ void	custom_sleep(t_game *rules, size_t time)
 {
 	size_t	start_time;
 
+	start_time = get_time();
 	if (!rules->dead && !rules->everybody_ate)
 	{
-		start_time = get_time();
-		while (get_time() < start_time + time)
-			usleep(500);
+		while (get_time() - time < start_time)
+			usleep(100);
 	}
 	return ;
 }

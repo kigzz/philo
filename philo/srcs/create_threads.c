@@ -45,7 +45,7 @@ int	create_threads(t_game *rules)
 		}
 		rules->philo[i].last_meal = get_time();
 	}
-	usleep(1000);
+	usleep(500);
 	check_end(rules);
 	wait_threads(thread_id, rules);
 	clean_exit(rules, thread_id);
