@@ -14,21 +14,17 @@
 
 // Wait the end of all the threads to continue,
 // The main program will not stop until all the threads are closed
-void	wait_threads(pthread_t *thread_id, t_rules *rules)
+void	wait_threads(pthread_t *thread_id, t_game *rules)
 {
 	int	i;
 
-	i = 0;
-	while (i < rules->nb_philo)
-	{
+	i = -1;
+	while (++i < rules->nb_philo)
 		pthread_join(thread_id[i], NULL);
-		i++;
-	}
 	return ;
 }
 
-// Create a thread for each philosopher and launch the routine() in the threads
-int	create_threads(t_rules *rules)
+int	create_threads(t_game *rules)
 {
 	pthread_t	*thread_id;
 	int			i;
@@ -37,8 +33,8 @@ int	create_threads(t_rules *rules)
 	if (!thread_id)
 		return (print_fd("Error, malloc in create_threads failed\n", 2));
 	rules->init_time = get_time();
-	i = 0;
-	while (i < rules->nb_philo)
+	i = -1;
+	while (++i < rules->nb_philo)
 	{
 		if (pthread_create(&thread_id[i], NULL, &routine, &rules->philo[i]))
 		{
@@ -48,7 +44,6 @@ int	create_threads(t_rules *rules)
 			return (1);
 		}
 		rules->philo[i].last_meal = get_time();
-		i++;
 	}
 	usleep(1000);
 	check_end(rules);

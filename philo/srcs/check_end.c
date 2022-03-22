@@ -14,7 +14,7 @@
 
 // Compare the number of time each philosopher ate with
 // number_of_times_each_philosopher_must_eat
-int	check_eat(t_rules *rules)
+int	check_eat(t_game *rules)
 {
 	int	philosophers_who_have_all_eat;
 	int	i;
@@ -39,7 +39,7 @@ int	check_eat(t_rules *rules)
 }
 
 // If a philosopher don't eat after time_to_die, he'll die.
-int	check_dead(t_rules *rules)
+int	check_rip(t_game *rules)
 {
 	int	i;
 
@@ -62,11 +62,11 @@ int	check_dead(t_rules *rules)
 
 // Loop ends when there is a dead,
 // or when everybody has eaten number_of_times_each_philosopher_must_eat
-void	check_end(t_rules *rules)
+void	check_end(t_game *rules)
 {
 	while (1)
 	{
-		if (check_dead(rules) == 1)
+		if (check_rip(rules) == 1)
 			break ;
 		if (rules->must_eat != -1)
 			if (check_eat(rules) == 1)

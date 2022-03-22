@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_rules.c                                       :+:      :+:    :+:   */
+/*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpouchep <bpouchep@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -42,7 +42,7 @@ unsigned int	atou(char *str)
 
 // The philo structure contains an ID, a pointer to the structure rules,
 // and some useful variables for the threads
-int	init_philo(t_rules *rules)
+int	init_philo(t_game *rules)
 {
 	int	i;
 
@@ -70,7 +70,7 @@ int	init_philo(t_rules *rules)
 
 // The rules structure contains the program arguments, a pointer on philo
 // and some general variables used by the program
-int	init_rules(t_rules *rules, char **argv, int argc)
+int	init_game(t_game *rules, char **argv, int argc)
 {
 	rules->nb_philo = atou(argv[1]);
 	rules->t_die = atou(argv[2]);

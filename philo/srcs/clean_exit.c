@@ -13,16 +13,13 @@
 #include "philosopher.h"
 
 // Destroy the mutex and free the malloc
-void	clean_exit(t_rules *rules, pthread_t *thread_id)
+void	clean_exit(t_game *rules, pthread_t *thread_id)
 {
 	int	i;
 
-	i = 0;
-	while (i < rules->nb_philo)
-	{
+	i = -1;
+	while (++i < rules->nb_philo)
 		pthread_mutex_destroy(&rules->philo[i].fork);
-		i++;
-	}
 	pthread_mutex_destroy(&rules->check_dead);
 	pthread_mutex_destroy(&rules->print_status);
 	free(rules->philo);

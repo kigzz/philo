@@ -13,7 +13,7 @@
 #include "philosopher.h"
 
 // A custom usleep function
-void	go_to_sleep(t_rules *rules, size_t time)
+void	custom_sleep(t_game *rules, size_t time)
 {
 	size_t	start_time;
 
@@ -21,9 +21,7 @@ void	go_to_sleep(t_rules *rules, size_t time)
 	{
 		start_time = get_time();
 		while (get_time() < start_time + time)
-		{
 			usleep(500);
-		}
 	}
 	return ;
 }
@@ -36,7 +34,7 @@ void	eat(t_philo *philo)
 	print_status(philo, FORK);
 	if (philo->rules->nb_philo == 1)
 	{
-		go_to_sleep(philo->rules, philo->rules->t_die);
+		custom_sleep(philo->rules, philo->rules->t_die);
 		print_status(philo, DIED);
 		pthread_mutex_unlock(&philo->fork);
 		philo->rules->dead = 1;
@@ -45,7 +43,7 @@ void	eat(t_philo *philo)
 	pthread_mutex_lock(&philo->r_philo->fork);
 	print_status(philo, FORK);
 	print_status(philo, EAT);
-	go_to_sleep(philo->rules, philo->rules->t_eat);
+	custom_sleep(philo->rules, philo->rules->t_eat);
 	pthread_mutex_unlock(&philo->fork);
 	pthread_mutex_unlock(&philo->r_philo->fork);
 	return ;
@@ -53,18 +51,18 @@ void	eat(t_philo *philo)
 
 // The function called by the threads, will not end until there is a dead
 // or if everybody eaten number_of_times_each_philosopher_must_eat
-void	*routine(void *add)
+void	*routine(void *args)
 {
 	t_philo	*philo;
 
-	philo = (t_philo *)add;
+	philo = (t_philo *)args;
 	if (philo->id % 2 == 0)
-		go_to_sleep(philo->rules, 100);
+		custom_sleep(philo->rules, 100);
 	while (!philo->rules->dead && !philo->rules->everybody_ate)
 	{
 		eat(philo);
 		print_status(philo, SLEEP);
-		go_to_sleep(philo->rules, philo->rules->t_sleep);
+		custom_sleep(philo->rules, philo->rules->t_sleep);
 		print_status(philo, THINK);
 	}
 	return (NULL);

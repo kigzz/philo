@@ -107,8 +107,8 @@ build CMakeFiles/philosopher42.dir/philo/srcs/get_time.c.o: C_COMPILER__philosop
   OBJECT_DIR = CMakeFiles/philosopher42.dir
   OBJECT_FILE_DIR = CMakeFiles/philosopher42.dir/philo/srcs
 
-build CMakeFiles/philosopher42.dir/philo/srcs/init_rules.c.o: C_COMPILER__philosopher42_Debug /home/bpouchep/CLionProjects/philosopher42/philo/srcs/init_rules.c || cmake_object_order_depends_target_philosopher42
-  DEP_FILE = CMakeFiles/philosopher42.dir/philo/srcs/init_rules.c.o.d
+build CMakeFiles/philosopher42.dir/philo/srcs/init_game.c.o: C_COMPILER__philosopher42_Debug /home/bpouchep/CLionProjects/philosopher42/philo/srcs/init_game.c || cmake_object_order_depends_target_philosopher42
+  DEP_FILE = CMakeFiles/philosopher42.dir/philo/srcs/init_game.c.o.d
   FLAGS = -g -std=gnu99
   INCLUDES = -I/home/bpouchep/CLionProjects/philosopher42/includes
   OBJECT_DIR = CMakeFiles/philosopher42.dir
@@ -136,7 +136,7 @@ build CMakeFiles/philosopher42.dir/philo/srcs/routine.c.o: C_COMPILER__philosoph
 #############################################
 # Link the executable philosopher42
 
-build philosopher42: C_EXECUTABLE_LINKER__philosopher42_Debug CMakeFiles/philosopher42.dir/philo/srcs/philo.c.o CMakeFiles/philosopher42.dir/philo/srcs/check_end.c.o CMakeFiles/philosopher42.dir/philo/srcs/clean_exit.c.o CMakeFiles/philosopher42.dir/philo/srcs/create_threads.c.o CMakeFiles/philosopher42.dir/philo/srcs/get_time.c.o CMakeFiles/philosopher42.dir/philo/srcs/init_rules.c.o CMakeFiles/philosopher42.dir/philo/srcs/print_status.c.o CMakeFiles/philosopher42.dir/philo/srcs/routine.c.o
+build philosopher42: C_EXECUTABLE_LINKER__philosopher42_Debug CMakeFiles/philosopher42.dir/philo/srcs/philo.c.o CMakeFiles/philosopher42.dir/philo/srcs/check_end.c.o CMakeFiles/philosopher42.dir/philo/srcs/clean_exit.c.o CMakeFiles/philosopher42.dir/philo/srcs/create_threads.c.o CMakeFiles/philosopher42.dir/philo/srcs/get_time.c.o CMakeFiles/philosopher42.dir/philo/srcs/init_game.c.o CMakeFiles/philosopher42.dir/philo/srcs/print_status.c.o CMakeFiles/philosopher42.dir/philo/srcs/routine.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/philosopher42.dir
   POST_BUILD = :

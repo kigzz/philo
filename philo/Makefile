@@ -6,7 +6,7 @@ CC				=	gcc -Wall -Wextra -Werror
 FLAGS			=	-pthread -Iincludes
 RM				=	rm -rf
 
-SRCS    		=	philo.c check_end.c clean_exit.c create_threads.c get_time.c init_rules.c print_status.c routine.c
+SRCS    		=	philo.c check_end.c clean_exit.c create_threads.c get_time.c init_game.c print_status.c routine.c
 SRCS_DIR		=	srcs/
 SRCS_PATH		=	$(addprefix $(SRCS_DIR), $(SRCS))
 OBJ_SRCS    	=	$(SRCS_PATH:%.c=%.o)

@@ -34,9 +34,7 @@ int	ft_putnbr(int n)
 	base_dec = "0123456789";
 	i = 0;
 	if ((nb >= 0) && (nb <= 9))
-	{
 		i = write(1, &base_dec[nb], 1);
-	}
 	else
 	{
 		ft_putnbr(nb / 10);

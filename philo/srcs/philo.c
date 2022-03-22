@@ -17,13 +17,13 @@
 // [optional : number_of_times_each_philosopher_must_eat]
 int	main(int argc, char **argv, char **envp)
 {
-	t_rules	rules;
+	t_game	rules;
 
 	if (!*envp)
 		return (0);
 	if (argc == 5 || argc == 6)
 	{
-		if (init_rules(&rules, argv, argc))
+		if (init_game(&rules, argv, argc))
 			create_threads(&rules);
 		return (0);
 	}
